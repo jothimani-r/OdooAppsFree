@@ -1,0 +1,13 @@
+<openerp>
+    <data>
+        <template id="assets_frontend" inherit_id="website.assets_frontend" name="load_products_on_scroll assets">
+            <xpath expr="." position="inside">
+                <link rel='stylesheet' href="/load_products_on_scroll/static/src/css/styles.css" />
+                <link rel='stylesheet' href="/load_products_on_scroll/static/src/css/options.css" />
+                <script type="text/javascript" src="/load_products_on_scroll/static/src/js/widget.js" />
+                <script type="text/javascript" src="/load_products_on_scroll/static/src/js/options.js" />
+                <script type="text/javascript" src="/load_products_on_scroll/static/src/js/require-options.js" />
+            </xpath>
+        </template>
+    </data>
+</openerp>
