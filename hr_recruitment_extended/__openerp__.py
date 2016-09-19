@@ -14,6 +14,7 @@
         'views/templates.xml',
         'views/hr_employee.xml',
         'views/hr_children.xml',
+        'views/hr_applicant.xml',
         # 'views/hr_academic_view.xml',
         # 'views/hr_professional_view.xml',
         # 'views/hr_certification_view.xml',
