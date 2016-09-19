@@ -4,17 +4,16 @@
     'category': 'Hidden',
     'depends': ['mail'],
     'author': 'Jothimani R',
-    'license': 'AGPL-3',
     'website': 'www.linkedin.com/in/rjothimani',
     'description': """
         Module which hides the Odoo announcement bar.
     """,
     'data': ['templates.xml'],
-    'images': [],    
+    'images': [],
     'js': ['static/src/js/announcement.js'],
-    'qweb' : [
+    'qweb': [
         "static/src/xml/base.xml",
-    ],    
+    ],
     'installable': True,
     'application': False,
 }
