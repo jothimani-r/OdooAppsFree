@@ -12,7 +12,7 @@
     'data': ['views/templates.xml'],
     'installable': True,
     'active': False,
-    'price': 100,
-    'currency': 'EUR',
+    # 'price': 100,
+    # 'currency': 'EUR',
     'images': ['images/main_screenshot.png'],
 }

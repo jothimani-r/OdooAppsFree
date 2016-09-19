@@ -12,6 +12,6 @@
     'data': [],
     'installable': True,
     'active': False,
-    'price': 60,
-    'currency': 'EUR',
+    # 'price': 60,
+    # 'currency': 'EUR',
 }
