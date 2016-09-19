@@ -11,7 +11,7 @@ class hr_applicant(models.Model):
     lastname = fields.Char('Last Name')
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], string="Gender")
     birthday = fields.Date('Date of Birth')
-    place_of_birth = fields.Boolean('Place of Birth')
+    place_of_birth = fields.Char('Place of Birth')
     country_of_birth = fields.Char('Country of Birth')
     marital = fields.Selection(
         [('single', 'Single'), ('married', 'Married'), ('widower', 'Widower'), ('divorced', 'Divorced')],
@@ -19,14 +19,15 @@ class hr_applicant(models.Model):
     #   Citizenship & Other Info
     identification_id = fields.Char('Identification No')
     passport_id = fields.Char('Passport No')
+    country_id = fields.Many2one('res.country')
     #   Permanent Address
     is_same_address = fields.Boolean('Same as Correspondence Address')
-    street_ht = fields.Char()
-    street2_ht = fields.Char()
-    city_ht = fields.Char()
-    zip_ht = fields.Char()
-    state_id_ht = fields.Many2one('res.country.state')
-    country_id_ht = fields.Many2one('res.country')
+    street_ht = fields.Char('Street')
+    street2_ht = fields.Char('Street')
+    city_ht = fields.Char('City')
+    zip_ht = fields.Char('Zip')
+    state_id_ht = fields.Many2one('res.country.state', string="State")
+    country_id_ht = fields.Many2one('res.country', string="Country")
     phone_ht = fields.Char('Home Phone')
     fax_ht = fields.Char('Fax')
     #   Job reference

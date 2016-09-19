@@ -10,6 +10,7 @@ class hr_curriculum(models.Model):
     start_date = fields.Date('Start date')
     is_still = fields.Boolean()
     end_date = fields.Date('End date')
+    grade = fields.Char('Grade')
     organization = fields.Char('Organization',
                                help="Employer, School, University, Organization, Institution, Company, Certification Authority")
     location = fields.Char('Location', help="Location")

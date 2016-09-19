@@ -47,6 +47,7 @@
                                 <field name="location"/>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
+                                <field name="grade"/>
                             </tree>
                             <form string="Academic Experience">
                                 <group>
@@ -56,6 +57,7 @@
                                         <field name="start_date"/>
                                         <field name="is_still" string="Present"/>
                                         <field name="end_date" attrs="{'invisible':[('is_still', '=', True)]}"/>
+                                        <field name="grade"/>
                                     </group>
                                     <group>
                                         <field name="organization" string="Institution"/>

@@ -156,15 +156,31 @@
                                         <input type="text" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-6">
+                                        <label for="">Field of study:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
                                         <label for="">Institution:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Location:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Start Date:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Present:</label>
+                                        <input type="checkbox" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">End Date:</label>
                                         <input type="text" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="">Grade:</label>
-                                        <input type="text" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="">Period:</label>
                                         <input type="text" class="form-control"/>
                                     </div>
                                 </div>
@@ -208,20 +224,6 @@
                         <input class="input-file" id="fileInput" type="file" name="ufile"/>
                         <span t-if="error.get('ufile')">Please send again your resume.</span>
                     </div>
-
-
-<div class="form-inside">
-
-        <!-- Adding URL(s) -->
-        <div style="display: none;" class="form boxed box-to-clone url-box">
-            <a href="#" class="close-form remove-box button"><i class="fa fa-close"></i></a>
-            <input class="search-field" placeholder="Name" value="" type="text"/>
-            <input class="search-field" placeholder="http://" value="" type="text"/>
-        </div>
-
-        <a href="#" class="button gray add-url add-box"><i class="fa fa-plus-circle"></i> Add URL</a>
-        <p class="note">Optionally provide links to any of your websites or social network profiles.</p>
-    </div>
 
                     <div class="form-group">
                         <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
