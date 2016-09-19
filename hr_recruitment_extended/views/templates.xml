@@ -1,0 +1,235 @@
+<openerp>
+    <data>
+        <template id="apply" inherit_id="website_hr_recruitment.apply">
+            <xpath expr="//form" position="replace">
+                <form class="form-vertical mt32" action="/jobs/thankyou" method="post" enctype="multipart/form-data">
+                    <input type="hidden" t-att-value="job and job.department_id.id or False" name="department_id"/>
+                    <input type="hidden" t-att-value="job and job.id or False" name="job_id"/>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Applicant Information</div>
+                            <div class="panel-body">
+                                <div class="form-group col-md-4">
+                                    <label for="">First Name:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">Middle Name:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="">Last Name:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="sel1">Gender:</label>
+                                    <select class="form-control">
+                                        <option>--Select--</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Birthday:</label>
+                                    <input type="datetime-local" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">City Of Birth:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Country Of Birth:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="sel1">Marital status:</label>
+                                    <select class="form-control">
+                                        <option>--Select--</option>
+                                        <option>Single</option>
+                                        <option>Married</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <!--                <div class="form-group col-md-12">
+                                                    <label for="comment">About me:</label>
+                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Correspondence/Local Address</div>
+                            <div class="panel-body">
+                                <div class="form-group col-md-7">
+                                    <label for="">Address Line 1:</label>
+                                    <input type="text" class="form-control"
+                                           placeholder="Door/Flat No/ Building/Society"/>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="">Address Line 2:</label>
+                                    <input type="text" class="form-control" placeholder="Street/Road Name/ Block"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">City / Town:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">State / Province / Region:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Zip / Postal Code:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="sel1">Country:</label>
+                                    <select class="form-control">
+                                        <option>--Select--</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="">Mobile:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Email Address:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Permanent Address</div>
+                            <div class="panel-body">
+                                <div class="checkbox col-md-12">
+                                    <label><input type="checkbox" value=""/>Same as Correspondence Address
+                                    </label>
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <label for="">Address Line 1:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="">Address Line 2:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">City / Town:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">State / Province / Region:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Zip / Postal Code:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="sel1">Country:</label>
+                                    <select class="form-control">
+                                        <option>--Select--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Telephone No. (With STD Code):</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Fax No.:</label>
+                                    <input type="text" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Educational information</div>
+                            <div class="panel-body">
+                                <div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Qualification:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Institution:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Grade:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Period:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <a id='add_more' class="pull-right btn btn-default">+</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Previous Employment information's</div>
+                            <div class="panel-body">
+                                <div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Job Title:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Organisation:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">From:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">To:</label>
+                                        <input type="text" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <a id='add_more' class="pull-right btn btn-default">+</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ufile">Resume</label>
+                        <input class="input-file" id="fileInput" type="file" name="ufile"/>
+                        <span t-if="error.get('ufile')">Please send again your resume.</span>
+                    </div>
+
+
+<div class="form-inside">
+
+        <!-- Adding URL(s) -->
+        <div style="display: none;" class="form boxed box-to-clone url-box">
+            <a href="#" class="close-form remove-box button"><i class="fa fa-close"></i></a>
+            <input class="search-field" placeholder="Name" value="" type="text"/>
+            <input class="search-field" placeholder="http://" value="" type="text"/>
+        </div>
+
+        <a href="#" class="button gray add-url add-box"><i class="fa fa-plus-circle"></i> Add URL</a>
+        <p class="note">Optionally provide links to any of your websites or social network profiles.</p>
+    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </xpath>
+        </template>
+    </data>
+</openerp>

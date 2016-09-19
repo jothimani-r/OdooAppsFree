@@ -1,0 +1,7 @@
+import hr_applicant
+import hr_children
+import hr_employee
+import hr_curriculum
+import hr_academic
+import hr_experience
+import hr_certification
