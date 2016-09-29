@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="purchase_order_view_form_batch_confirm" model="ir.ui.view">
+            <field name="name">Confirm Purchase</field>
+            <field name="model">purchase.batch.confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm Purchase">
+                    <separator colspan="4" string="Do you really want to confirm the purchase(s)?"/>
+                    <footer>
+                        <button name="batch_confirm_po" string="Yes" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase_order_action_batch_confirm" model="ir.actions.act_window">
+            <field name="name">Confirm Purchase</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.batch.confirm</field>
+            <field name="src_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="purchase_order_view_form_batch_confirm"/>
+            <field name="target">new</field>
+            <field name="multi">True</field>
+        </record>
+
+        <record model="ir.values" id="purchase_order_confirm_batch">
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="name">Confirm Purchase</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value" eval="'ir.actions.act_window,' + str(ref('purchase_order_action_batch_confirm'))"/>
+            <field name="key">action</field>
+            <field name="model">purchase.order</field>
+        </record>
+    </data>
+</openerp>
