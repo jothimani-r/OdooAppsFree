@@ -11,19 +11,19 @@
                             <div class="panel-body">
                                 <div class="form-group col-md-4">
                                     <label for="">First Name:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="firstname" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">Middle Name:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="middlename" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">Last Name:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="lastname" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Gender:</label>
-                                    <select class="form-control">
+                                    <select name="gender" class="form-control">
                                         <option>--Select--</option>
                                         <option>Male</option>
                                         <option>Female</option>
@@ -31,29 +31,25 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Birthday:</label>
-                                    <input type="datetime-local" class="form-control"/>
+                                    <input type="datetime-local" name="birthday" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City Of Birth:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="birthplace" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Country Of Birth:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="birthcountry" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Marital status:</label>
-                                    <select class="form-control">
+                                    <select name="marital" class="form-control">
                                         <option>--Select--</option>
                                         <option>Single</option>
                                         <option>Married</option>
                                         <option>Other</option>
                                     </select>
                                 </div>
-                                <!--                <div class="form-group col-md-12">
-                                                    <label for="comment">About me:</label>
-                                                    <textarea class="form-control" rows="5" id="comment"></textarea>
-                                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -63,39 +59,52 @@
                             <div class="panel-body">
                                 <div class="form-group col-md-7">
                                     <label for="">Address Line 1:</label>
-                                    <input type="text" class="form-control"
+                                    <input type="text" name="street" class="form-control"
                                            placeholder="Door/Flat No/ Building/Society"/>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="">Address Line 2:</label>
-                                    <input type="text" class="form-control" placeholder="Street/Road Name/ Block"/>
+                                    <input type="text" name="street2" class="form-control"
+                                           placeholder="Street/Road Name/ Block"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City / Town:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="city" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">State / Province / Region:</label>
-                                    <input type="text" class="form-control"/>
+                                    <label for="sel1">State:</label>
+                                    <select name="state_id" class="form-control">
+                                        <option>--Select--</option>
+                                        <t t-foreach="states" t-as="state">
+                                            <option t-att-value="state.id">
+                                                <t t-esc="state.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Zip / Postal Code:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="zip" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Country:</label>
-                                    <select class="form-control">
+                                    <select name="country_id" class="form-control">
                                         <option>--Select--</option>
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country.id">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
                                     </select>
                                 </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="">Mobile:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="partner_mobile" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Email Address:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="email_from" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -105,42 +114,54 @@
                             <div class="panel-heading">Permanent Address</div>
                             <div class="panel-body">
                                 <div class="checkbox col-md-12">
-                                    <label><input type="checkbox" value=""/>Same as Correspondence Address
+                                    <label><input type="checkbox" name="is_same_address"/>Same as Correspondence Address
                                     </label>
                                 </div>
                                 <div class="form-group col-md-7">
                                     <label for="">Address Line 1:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="street_ht" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="">Address Line 2:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="street2_ht" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City / Town:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="city_ht" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="">State / Province / Region:</label>
-                                    <input type="text" class="form-control"/>
+                                    <label for="sel1">State:</label>
+                                    <select name="state_id_ht" class="form-control">
+                                        <option>--Select--</option>
+                                        <t t-foreach="states" t-as="state">
+                                            <option t-att-value="state.id">
+                                                <t t-esc="state.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Zip / Postal Code:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="zip_ht" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Country:</label>
-                                    <select class="form-control">
+                                    <select class="form-control" name="country_id_ht">
                                         <option>--Select--</option>
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country.id">
+                                                <t t-esc="country.name"/>
+                                            </option>
+                                        </t>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Telephone No. (With STD Code):</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="phone_ht" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Fax No.:</label>
-                                    <input type="text" class="form-control"/>
+                                    <input type="text" name="fax_ht" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -153,35 +174,75 @@
                                 <div>
                                     <div class="form-group col-md-6">
                                         <label for="">Qualification:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="name" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Field of study:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="study_field" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Institution:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="organization" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Location:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="location" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-2">
                                         <label for="">Start Date:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="start_date" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-1">
                                         <label for="">Present:</label>
-                                        <input type="checkbox" class="form-control"/>
+                                        <input type="checkbox" name="is_still" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-2">
                                         <label for="">End Date:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="start_date" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-1">
                                         <label for="">Grade:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="grade" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <a id='add_more' class="pull-right btn btn-default">+</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Certifications</div>
+                            <div class="panel-body">
+                                <div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Certification:</label>
+                                        <input type="text" name="name" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for=""># Certification:</label>
+                                        <input type="text" name="certification" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Institution:</label>
+                                        <input type="text" name="organization" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="">Location:</label>
+                                        <input type="text" name="location" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="">Start Date:</label>
+                                        <input type="text" name="start_date" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="">Present:</label>
+                                        <input type="checkbox" name="is_still" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="">End Date:</label>
+                                        <input type="text" name="start_date" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -197,19 +258,60 @@
                                 <div>
                                     <div class="form-group col-md-6">
                                         <label for="">Job Title:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="name" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="">Organisation:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="organization" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-2">
+                                        <label for="">Location:</label>
+                                        <input type="text" name="location" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-2">
                                         <label for="">From:</label>
-                                        <input type="text" class="form-control"/>
+                                        <input type="text" name="start_date" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="">Present:</label>
+                                        <input type="checkbox" name="is_still" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="">To:</label>
+                                        <input type="text" name="end_date" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="">To:</label>
-                                        <input type="text" class="form-control"/>
+                                        <label for="sel1">Notice Period:</label>
+                                        <select class="form-control" name="notice_period">
+                                            <option>--Select--</option>
+                                            <option value="s_notice_period">Serving Notice Period</option>
+                                            <option value="15days">15 Days or less</option>
+                                            <option value="1month">1 Month</option>
+                                            <option value="2months">2 Months</option>
+                                            <option value="3months">3 Months</option>
+                                            <option value="above3months">More than 3 Months</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="sel1">Work Type:</label>
+                                        <select class="form-control" name="notice_period">
+                                            <option>--Select--</option>
+                                            <option value="full_time">Full time</option>
+                                            <option value="part_time">Part time</option>
+                                        </select>
+                                    </div>
+                                    <div class="row"/>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Name of referee:</label>
+                                        <input type="text" name="referee_name" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Position of referee:</label>
+                                        <input type="text" name="referee_position" class="form-control"/>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="">Contact:</label>
+                                        <input type="text" name="referee_contact" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -218,14 +320,36 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Job reference</div>
+                            <div class="panel-body">
+                                <div class="form-group col-md-3">
+                                    <label for="">Referred by:</label>
+                                    <input type="text" name="ref_name" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Organization:</label>
+                                    <input type="text" name="ref_org" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Relation:</label>
+                                    <input type="text" name="ref_rel" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Contact:</label>
+                                    <input type="text" name="ref_contact" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="ufile">Resume</label>
                         <input class="input-file" id="fileInput" type="file" name="ufile"/>
                         <span t-if="error.get('ufile')">Please send again your resume.</span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group row text-center">
                         <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
