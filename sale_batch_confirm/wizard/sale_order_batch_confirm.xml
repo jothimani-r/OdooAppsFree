@@ -17,7 +17,7 @@
         </record>
 
         <record id="sale_order_action_batch_confirm" model="ir.actions.act_window">
-            <field name="name">Confirm Sale</field>
+            <field name="name">Confirm Sale Quotations</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sale.batch.confirm</field>
             <field name="src_model">sale.order</field>

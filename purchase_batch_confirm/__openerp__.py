@@ -3,6 +3,7 @@
     'name': "Purchase Orders Batch Confirm",
     'summary': " ",
     'description': """
+        Multiple purchase quotations confirmation in one click.
     """,
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/rjothimani",
