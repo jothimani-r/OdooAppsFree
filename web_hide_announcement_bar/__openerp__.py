@@ -3,8 +3,8 @@
     'version': '0.1',
     'category': 'Tools',
     'depends': ['mail'],
-    'author': 'Jothimani R',
-    'website': 'www.linkedin.com/in/rjothimani',
+    'author': "JRELA Soft",
+    'website': "www.linkedin.com/in/jrelasoft",
     'description': """
         Module which hides the Odoo announcement bar.
     """,

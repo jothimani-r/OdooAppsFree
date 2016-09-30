@@ -5,8 +5,8 @@
     'description': """
         Multiple sale quotations confirmation in one click.
     """,
-    'author': "Jothimani R",
-    'website': "www.linkedin.com/in/rjothimani",
+    'author': "JRELA Soft",
+    'website': "www.linkedin.com/in/jrelasoft",
     'category': 'Sales Management',
     'version': '0.1',
     'depends': ['sale'],
