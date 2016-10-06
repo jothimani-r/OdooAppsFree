@@ -1,8 +1,15 @@
 <openerp>
     <data>
+
+        <template id="assets_frontend" name="recruit_extended_assets" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/hr_recruitment_extended/static/src/js/recruit_extended.js"></script>
+            </xpath>
+        </template>
+
         <template id="apply" inherit_id="website_hr_recruitment.apply">
             <xpath expr="//form" position="replace">
-                <form class="form-vertical mt32" action="/jobs/thankyou" method="post" enctype="multipart/form-data">
+                <form class="form-vertical mt32 hr_recruit_extended" action="/jobs/thankyou" method="post" enctype="multipart/form-data">
                     <input type="hidden" t-att-value="job and job.department_id.id or False" name="department_id"/>
                     <input type="hidden" t-att-value="job and job.id or False" name="job_id"/>
                     <div class="row">
@@ -21,15 +28,15 @@
                                     <label for="">Last Name:</label>
                                     <input type="text" name="lastname" class="form-control"/>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="sel1">Gender:</label>
                                     <select name="gender" class="form-control">
-                                        <option>--Select--</option>
-                                        <option>Male</option>
-                                        <option>Female</option>
+                                        <option value="">--Select--</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Birthday:</label>
                                     <input type="datetime-local" name="birthday" class="form-control"/>
                                 </div>
@@ -41,14 +48,23 @@
                                     <label for="">Country Of Birth:</label>
                                     <input type="text" name="birthcountry" class="form-control"/>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="sel1">Marital status:</label>
                                     <select name="marital" class="form-control">
-                                        <option>--Select--</option>
-                                        <option>Single</option>
-                                        <option>Married</option>
-                                        <option>Other</option>
+                                        <option value="">--Select--</option>
+                                        <option value="single">Single</option>
+                                        <option value="married">Married</option>
+                                        <option value="widower">Widower</option>
+                                        <option value="divorced">Divorced</option>
                                     </select>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Mobile:</label>
+                                    <input type="text" name="partner_mobile" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="">Email Address:</label>
+                                    <input type="text" name="email_from" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +90,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="sel1">State:</label>
                                     <select name="state_id" class="form-control">
-                                        <option>--Select--</option>
+                                        <option value="">--Select--</option>
                                         <t t-foreach="states" t-as="state">
                                             <option t-att-value="state.id">
                                                 <t t-esc="state.name"/>
@@ -89,22 +105,13 @@
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Country:</label>
                                     <select name="country_id" class="form-control">
-                                        <option>--Select--</option>
+                                        <option value="">--Select--</option>
                                         <t t-foreach="countries" t-as="country">
                                             <option t-att-value="country.id">
                                                 <t t-esc="country.name"/>
                                             </option>
                                         </t>
                                     </select>
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="">Mobile:</label>
-                                    <input type="text" name="partner_mobile" class="form-control"/>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="">Email Address:</label>
-                                    <input type="text" name="email_from" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +139,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="sel1">State:</label>
                                     <select name="state_id_ht" class="form-control">
-                                        <option>--Select--</option>
+                                        <option value="">--Select--</option>
                                         <t t-foreach="states" t-as="state">
                                             <option t-att-value="state.id">
                                                 <t t-esc="state.name"/>
@@ -147,7 +154,7 @@
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Country:</label>
                                     <select class="form-control" name="country_id_ht">
-                                        <option>--Select--</option>
+                                        <option value="">--Select--</option>
                                         <t t-foreach="countries" t-as="country">
                                             <option t-att-value="country.id">
                                                 <t t-esc="country.name"/>
@@ -198,7 +205,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="">End Date:</label>
-                                        <input type="text" name="start_date" class="form-control"/>
+                                        <input type="text" name="end_date" class="form-control"/>
                                     </div>
                                     <div class="form-group col-md-1">
                                         <label for="">Grade:</label>
@@ -242,7 +249,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="">End Date:</label>
-                                        <input type="text" name="start_date" class="form-control"/>
+                                        <input type="text" name="end_date" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -294,7 +301,7 @@
                                     </div>
                                     <div class="form-group col-md-2">
                                         <label for="sel1">Work Type:</label>
-                                        <select class="form-control" name="notice_period">
+                                        <select class="form-control" name="type">
                                             <option>--Select--</option>
                                             <option value="full_time">Full time</option>
                                             <option value="part_time">Part time</option>
