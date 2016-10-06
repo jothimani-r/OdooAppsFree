@@ -35,7 +35,7 @@ class WebsiteHrRecruitment(Home):
 
     def _get_applicant_char_fields(self):
         # 'partner_mobile', 'email_from',
-        return ['firstname', 'middlename', 'lastname', 'gender', 'birthplace', 'birthcountry', 'marital',
+        return ['middlename', 'lastname', 'gender', 'place_of_birth', 'country_of_birth', 'marital',
                 'partner_mobile', 'email_from', 'ref_name', 'ref_org', 'ref_rel', 'ref_contact', 'is_same_address',
                 'street_ht', 'street2_ht', 'city_ht', 'zip_ht', 'phone_ht', 'fax_ht']
 
@@ -71,6 +71,7 @@ class WebsiteHrRecruitment(Home):
 
     @http.route('/jobs/thankyou', methods=['POST'], type='http', auth="public", website=True)
     def jobs_thankyou(self, **post):
+        print '\n', post, "---------- post\n"
         # public user can't create applicants
         env = request.env(user=SUPERUSER_ID)
         value = {

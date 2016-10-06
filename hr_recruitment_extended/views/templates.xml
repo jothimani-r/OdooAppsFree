@@ -3,13 +3,15 @@
 
         <template id="assets_frontend" name="recruit_extended_assets" inherit_id="website.assets_frontend">
             <xpath expr="." position="inside">
-                <script type="text/javascript" src="/hr_recruitment_extended/static/src/js/recruit_extended.js"></script>
+                <script type="text/javascript"
+                        src="/hr_recruitment_extended/static/src/js/recruit_extended.js"></script>
             </xpath>
         </template>
 
         <template id="apply" inherit_id="website_hr_recruitment.apply">
             <xpath expr="//form" position="replace">
-                <form class="form-vertical mt32 hr_recruit_extended" action="/jobs/thankyou" method="post" enctype="multipart/form-data">
+                <form class="form-vertical mt32 hr_recruit_extended" action="/jobs/thankyou" method="post"
+                      enctype="multipart/form-data">
                     <input type="hidden" t-att-value="job and job.department_id.id or False" name="department_id"/>
                     <input type="hidden" t-att-value="job and job.id or False" name="job_id"/>
                     <div class="row">
@@ -42,11 +44,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City Of Birth:</label>
-                                    <input type="text" name="birthplace" class="form-control"/>
+                                    <input type="text" name="place_of_birth" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Country Of Birth:</label>
-                                    <input type="text" name="birthcountry" class="form-control"/>
+                                    <input type="text" name="country_of_birth" class="form-control"/>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="sel1">Marital status:</label>
@@ -178,42 +180,84 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Educational information</div>
                             <div class="panel-body">
-                                <div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Qualification:</label>
-                                        <input type="text" name="name" class="form-control"/>
+                                <div id="infoEducation">
+                                    <div class="infoEducationGroup">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Qualification:</label>
+                                            <input type="text" name="edu[0].name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Field of study:</label>
+                                            <input type="text" name="edu[0].study_field" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Institution:</label>
+                                            <input type="text" name="edu[0].organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="edu[0].location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Start Date:</label>
+                                            <input type="text" name="edu[0].start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="edu[0].is_still" id="is_still"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">End Date:</label>
+                                            <input type="text" name="edu[0].end_date" id="end_date"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Grade:</label>
+                                            <input type="text" name="edu[0].grade" class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='add_more' class="pull-right btn btn-default">+</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Field of study:</label>
-                                        <input type="text" name="study_field" class="form-control"/>
+
+                                    <div class="infoEducationGroup hide" id="infoEducationGroupTemplate">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Qualification:</label>
+                                            <input type="text" name="name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Field of study:</label>
+                                            <input type="text" name="study_field" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Institution:</label>
+                                            <input type="text" name="organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Start Date:</label>
+                                            <input type="text" name="start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="is_still" id="is_still" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">End Date:</label>
+                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Grade:</label>
+                                            <input type="text" name="grade" class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='remove_more' class="pull-right btn btn-default">-</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Institution:</label>
-                                        <input type="text" name="organization" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Location:</label>
-                                        <input type="text" name="location" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">Start Date:</label>
-                                        <input type="text" name="start_date" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="">Present:</label>
-                                        <input type="checkbox" name="is_still" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">End Date:</label>
-                                        <input type="text" name="end_date" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="">Grade:</label>
-                                        <input type="text" name="grade" class="form-control"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <a id='add_more' class="pull-right btn btn-default">+</a>
                                 </div>
                             </div>
                         </div>
@@ -222,38 +266,75 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Certifications</div>
                             <div class="panel-body">
-                                <div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Certification:</label>
-                                        <input type="text" name="name" class="form-control"/>
+                                <div id="infoCertification">
+                                    <div class="infoCertificationGroup">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Certification:</label>
+                                            <input type="text" name="cer[0].name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for=""># Certification:</label>
+                                            <input type="text" name="cer[0].certification" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Institution:</label>
+                                            <input type="text" name="cer[0].organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="cer[0].location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Start Date:</label>
+                                            <input type="text" name="cer[0].start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="cer[0].is_still" id="is_still"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">End Date:</label>
+                                            <input type="text" name="cer[0].end_date" id="end_date"
+                                                   class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='add_more' class="pull-right btn btn-default">+</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for=""># Certification:</label>
-                                        <input type="text" name="certification" class="form-control"/>
+                                    <div class="infoCertificationGroup hide" id="infoCertificationGroupTemplate">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Certification:</label>
+                                            <input type="text" name="name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for=""># Certification:</label>
+                                            <input type="text" name="certification" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Institution:</label>
+                                            <input type="text" name="organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Start Date:</label>
+                                            <input type="text" name="start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="is_still" id="is_still" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">End Date:</label>
+                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='remove_more' class="pull-right btn btn-default">-</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Institution:</label>
-                                        <input type="text" name="organization" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Location:</label>
-                                        <input type="text" name="location" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">Start Date:</label>
-                                        <input type="text" name="start_date" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="">Present:</label>
-                                        <input type="checkbox" name="is_still" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">End Date:</label>
-                                        <input type="text" name="end_date" class="form-control"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <a id='add_more' class="pull-right btn btn-default">+</a>
                                 </div>
                             </div>
                         </div>
@@ -262,67 +343,132 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Previous Employment information's</div>
                             <div class="panel-body">
-                                <div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Job Title:</label>
-                                        <input type="text" name="name" class="form-control"/>
+                                <div id="infoEmployer">
+                                    <div class="infoEmployerGroup">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Job Title:</label>
+                                            <input type="text" name="emp[0].name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Organisation:</label>
+                                            <input type="text" name="emp[0].organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="emp[0].location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">From:</label>
+                                            <input type="text" name="emp[0].start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="emp[0].is_still" id="is_still" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">To:</label>
+                                            <input type="text" name="emp[0].end_date" id="end_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="sel1">Notice Period:</label>
+                                            <select class="form-control" name="emp[0].notice_period" id="notice_period" disabled="disabled">
+                                                <option>--Select--</option>
+                                                <option value="s_notice_period">Serving Notice Period</option>
+                                                <option value="15days">15 Days or less</option>
+                                                <option value="1month">1 Month</option>
+                                                <option value="2months">2 Months</option>
+                                                <option value="3months">3 Months</option>
+                                                <option value="above3months">More than 3 Months</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="sel1">Work Type:</label>
+                                            <select class="form-control" name="emp[0].type">
+                                                <option>--Select--</option>
+                                                <option value="full_time">Full time</option>
+                                                <option value="part_time">Part time</option>
+                                            </select>
+                                        </div>
+                                        <div class="row"/>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Name of referee:</label>
+                                            <input type="text" name="emp[0].referee_name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Position of referee:</label>
+                                            <input type="text" name="emp[0].referee_position" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Contact:</label>
+                                            <input type="text" name="emp[0].referee_contact" class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='add_more' class="pull-right btn btn-default">+</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="">Organisation:</label>
-                                        <input type="text" name="organization" class="form-control"/>
+
+                                    <div class="infoEmployerGroup hide" id="infoEmployerGroupTemplate">
+                                        <div class="form-group col-md-6">
+                                            <label for="">Job Title:</label>
+                                            <input type="text" name="name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="">Organisation:</label>
+                                            <input type="text" name="organization" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">Location:</label>
+                                            <input type="text" name="location" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">From:</label>
+                                            <input type="text" name="start_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-1">
+                                            <label for="">Present:</label>
+                                            <input type="checkbox" name="is_still" id="is_still" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="">To:</label>
+                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="sel1">Notice Period:</label>
+                                            <select class="form-control" name="notice_period" id="notice_period" disabled="disabled">
+                                                <option>--Select--</option>
+                                                <option value="s_notice_period">Serving Notice Period</option>
+                                                <option value="15days">15 Days or less</option>
+                                                <option value="1month">1 Month</option>
+                                                <option value="2months">2 Months</option>
+                                                <option value="3months">3 Months</option>
+                                                <option value="above3months">More than 3 Months</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="sel1">Work Type:</label>
+                                            <select class="form-control" name="type">
+                                                <option>--Select--</option>
+                                                <option value="full_time">Full time</option>
+                                                <option value="part_time">Part time</option>
+                                            </select>
+                                        </div>
+                                        <div class="row"/>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Name of referee:</label>
+                                            <input type="text" name="referee_name" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Position of referee:</label>
+                                            <input type="text" name="referee_position" class="form-control"/>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="">Contact:</label>
+                                            <input type="text" name="referee_contact" class="form-control"/>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a id='remove_more' class="pull-right btn btn-default">-</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">Location:</label>
-                                        <input type="text" name="location" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">From:</label>
-                                        <input type="text" name="start_date" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-1">
-                                        <label for="">Present:</label>
-                                        <input type="checkbox" name="is_still" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="">To:</label>
-                                        <input type="text" name="end_date" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="sel1">Notice Period:</label>
-                                        <select class="form-control" name="notice_period">
-                                            <option>--Select--</option>
-                                            <option value="s_notice_period">Serving Notice Period</option>
-                                            <option value="15days">15 Days or less</option>
-                                            <option value="1month">1 Month</option>
-                                            <option value="2months">2 Months</option>
-                                            <option value="3months">3 Months</option>
-                                            <option value="above3months">More than 3 Months</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="sel1">Work Type:</label>
-                                        <select class="form-control" name="type">
-                                            <option>--Select--</option>
-                                            <option value="full_time">Full time</option>
-                                            <option value="part_time">Part time</option>
-                                        </select>
-                                    </div>
-                                    <div class="row"/>
-                                    <div class="form-group col-md-3">
-                                        <label for="">Name of referee:</label>
-                                        <input type="text" name="referee_name" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="">Position of referee:</label>
-                                        <input type="text" name="referee_position" class="form-control"/>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="">Contact:</label>
-                                        <input type="text" name="referee_contact" class="form-control"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <a id='add_more' class="pull-right btn btn-default">+</a>
                                 </div>
                             </div>
                         </div>
