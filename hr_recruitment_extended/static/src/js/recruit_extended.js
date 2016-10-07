@@ -47,6 +47,7 @@ $(document).ready(function(){
                 .find("[name='is_still']").attr('name', 'edu['+eduIndex+'].is_still').end()
                 .find("[name='end_date']").attr('name', 'edu['+eduIndex+'].end_date').end()
                 .find("[name='grade']").attr('name', 'edu['+eduIndex+'].grade').end();
+            $("[name='eduindex']").attr('value', eduIndex);
         })
         .on('click', '#remove_more', function(){
             var $row  = $(this).parents('.infoEducationGroup');
@@ -65,13 +66,14 @@ $(document).ready(function(){
                             .attr('data-cer-index', cerIndex)
                             .insertBefore($template);
             $clone
-                .find("[name='name']").attr('name', 'edu['+cerIndex+'].name').end()
-                .find("[name='certification']").attr('name', 'edu['+cerIndex+'].certification').end()
-                .find("[name='organization']").attr('name', 'edu['+cerIndex+'].organization').end()
-                .find("[name='location']").attr('name', 'edu['+cerIndex+'].location').end()
-                .find("[name='start_date']").attr('name', 'edu['+cerIndex+'].start_date').end()
-                .find("[name='is_still']").attr('name', 'edu['+cerIndex+'].is_still').end()
-                .find("[name='end_date']").attr('name', 'edu['+cerIndex+'].end_date').end();
+                .find("[name='name']").attr('name', 'cer['+cerIndex+'].name').end()
+                .find("[name='certification']").attr('name', 'cer['+cerIndex+'].certification').end()
+                .find("[name='organization']").attr('name', 'cer['+cerIndex+'].organization').end()
+                .find("[name='location']").attr('name', 'cer['+cerIndex+'].location').end()
+                .find("[name='start_date']").attr('name', 'cer['+cerIndex+'].start_date').end()
+                .find("[name='is_still']").attr('name', 'cer['+cerIndex+'].is_still').end()
+                .find("[name='end_date']").attr('name', 'cer['+cerIndex+'].end_date').end();
+            $("[name='cerindex']").attr('value', cerIndex);
         })
         .on('click', '#remove_more', function(){
             var $row  = $(this).parents('.infoCertificationGroup');
@@ -90,17 +92,18 @@ $(document).ready(function(){
                             .attr('data-cer-index', empIndex)
                             .insertBefore($template);
             $clone
-                .find("[name='name']").attr('name', 'edu['+empIndex+'].name').end()
-                .find("[name='organization']").attr('name', 'edu['+empIndex+'].organization').end()
-                .find("[name='location']").attr('name', 'edu['+empIndex+'].location').end()
-                .find("[name='start_date']").attr('name', 'edu['+empIndex+'].start_date').end()
-                .find("[name='is_still']").attr('name', 'edu['+empIndex+'].is_still').end()
-                .find("[name='end_date']").attr('name', 'edu['+empIndex+'].end_date').end()
-                .find("[name='notice_period']").attr('name', 'edu['+empIndex+'].notice_period').end()
-                .find("[name='type']").attr('name', 'edu['+empIndex+'].type').end()
-                .find("[name='referee_name']").attr('name', 'edu['+empIndex+'].referee_name').end()
-                .find("[name='referee_position']").attr('name', 'edu['+empIndex+'].referee_position').end()
-                .find("[name='referee_contact']").attr('name', 'edu['+empIndex+'].referee_contact').end();
+                .find("[name='name']").attr('name', 'emp['+empIndex+'].name').end()
+                .find("[name='organization']").attr('name', 'emp['+empIndex+'].organization').end()
+                .find("[name='location']").attr('name', 'emp['+empIndex+'].location').end()
+                .find("[name='start_date']").attr('name', 'emp['+empIndex+'].start_date').end()
+                .find("[name='is_still']").attr('name', 'emp['+empIndex+'].is_still').end()
+                .find("[name='end_date']").attr('name', 'emp['+empIndex+'].end_date').end()
+                .find("[name='notice_period']").attr('name', 'emp['+empIndex+'].notice_period').end()
+                .find("[name='type']").attr('name', 'emp['+empIndex+'].type').end()
+                .find("[name='referee_name']").attr('name', 'emp['+empIndex+'].referee_name').end()
+                .find("[name='referee_position']").attr('name', 'emp['+empIndex+'].referee_position').end()
+                .find("[name='referee_contact']").attr('name', 'emp['+empIndex+'].referee_contact').end();
+            $("[name='empindex']").attr('value', empIndex);
         })
         .on('click', '#remove_more', function(){
             var $row  = $(this).parents('.infoEmployerGroup');

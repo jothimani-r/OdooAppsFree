@@ -20,7 +20,7 @@
                             <div class="panel-body">
                                 <div class="form-group col-md-4">
                                     <label for="">First Name:</label>
-                                    <input type="text" name="firstname" class="form-control"/>
+                                    <input type="text" name="firstname" class="form-control" required="True"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="">Middle Name:</label>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="sel1">Gender:</label>
-                                    <select name="gender" class="form-control">
+                                    <select name="gender" class="form-control" required="True">
                                         <option value="">--Select--</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -40,7 +40,8 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="">Birthday:</label>
-                                    <input type="datetime-local" name="birthday" class="form-control"/>
+                                    <input type="datetime-local" placeholder="YYYY-MM-DD" name="birthday"
+                                           class="form-control" required="True"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City Of Birth:</label>
@@ -52,7 +53,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="sel1">Marital status:</label>
-                                    <select name="marital" class="form-control">
+                                    <select name="marital" class="form-control" required="True">
                                         <option value="">--Select--</option>
                                         <option value="single">Single</option>
                                         <option value="married">Married</option>
@@ -62,11 +63,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Mobile:</label>
-                                    <input type="text" name="partner_mobile" class="form-control"/>
+                                    <input type="text" name="partner_mobile" class="form-control" required="True"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Email Address:</label>
-                                    <input type="text" name="email_from" class="form-control"/>
+                                    <input type="text" name="email_from" class="form-control" required="True"/>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +79,7 @@
                                 <div class="form-group col-md-7">
                                     <label for="">Address Line 1:</label>
                                     <input type="text" name="street" class="form-control"
-                                           placeholder="Door/Flat No/ Building/Society"/>
+                                           placeholder="Door/Flat No/ Building/Society" required="True"/>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <label for="">Address Line 2:</label>
@@ -87,7 +88,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">City / Town:</label>
-                                    <input type="text" name="city" class="form-control"/>
+                                    <input type="text" name="city" class="form-control" required="True"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">State:</label>
@@ -102,11 +103,11 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Zip / Postal Code:</label>
-                                    <input type="text" name="zip" class="form-control"/>
+                                    <input type="text" name="zip" class="form-control" required="True"/>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="sel1">Country:</label>
-                                    <select name="country_id" class="form-control">
+                                    <select name="country_id" class="form-control" required="True">
                                         <option value="">--Select--</option>
                                         <t t-foreach="countries" t-as="country">
                                             <option t-att-value="country.id">
@@ -181,26 +182,31 @@
                             <div class="panel-heading">Educational information</div>
                             <div class="panel-body">
                                 <div id="infoEducation">
+                                    <input type="hidden" name="eduindex" value="0"/>
                                     <div class="infoEducationGroup">
                                         <div class="form-group col-md-6">
                                             <label for="">Qualification:</label>
-                                            <input type="text" name="edu[0].name" class="form-control"/>
+                                            <input type="text" name="edu[0].name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Field of study:</label>
-                                            <input type="text" name="edu[0].study_field" class="form-control"/>
+                                            <input type="text" name="edu[0].study_field" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Institution:</label>
-                                            <input type="text" name="edu[0].organization" class="form-control"/>
+                                            <input type="text" name="edu[0].organization" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Location:</label>
-                                            <input type="text" name="edu[0].location" class="form-control"/>
+                                            <input type="text" name="edu[0].location" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Start Date:</label>
-                                            <input type="text" name="edu[0].start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="edu[0].start_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
@@ -209,7 +215,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">End Date:</label>
-                                            <input type="text" name="edu[0].end_date" id="end_date"
+                                            <input type="text" placeholder="YYYY-MM-DD" name="edu[0].end_date"
+                                                   id="end_date"
                                                    class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
@@ -224,23 +231,25 @@
                                     <div class="infoEducationGroup hide" id="infoEducationGroupTemplate">
                                         <div class="form-group col-md-6">
                                             <label for="">Qualification:</label>
-                                            <input type="text" name="name" class="form-control"/>
+                                            <input type="text" name="name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Field of study:</label>
-                                            <input type="text" name="study_field" class="form-control"/>
+                                            <input type="text" name="study_field" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Institution:</label>
-                                            <input type="text" name="organization" class="form-control"/>
+                                            <input type="text" name="organization" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Location:</label>
-                                            <input type="text" name="location" class="form-control"/>
+                                            <input type="text" name="location" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Start Date:</label>
-                                            <input type="text" name="start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="start_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
@@ -248,7 +257,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">End Date:</label>
-                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="end_date" id="end_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Grade:</label>
@@ -267,10 +277,11 @@
                             <div class="panel-heading">Certifications</div>
                             <div class="panel-body">
                                 <div id="infoCertification">
+                                    <input type="hidden" name="cerindex" value="0"/>
                                     <div class="infoCertificationGroup">
                                         <div class="form-group col-md-6">
                                             <label for="">Certification:</label>
-                                            <input type="text" name="cer[0].name" class="form-control"/>
+                                            <input type="text" name="cer[0].name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for=""># Certification:</label>
@@ -278,7 +289,8 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Institution:</label>
-                                            <input type="text" name="cer[0].organization" class="form-control"/>
+                                            <input type="text" name="cer[0].organization" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Location:</label>
@@ -286,7 +298,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Start Date:</label>
-                                            <input type="text" name="cer[0].start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="cer[0].start_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
@@ -295,7 +308,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">End Date:</label>
-                                            <input type="text" name="cer[0].end_date" id="end_date"
+                                            <input type="text" placeholder="YYYY-MM-DD" name="cer[0].end_date"
+                                                   id="end_date"
                                                    class="form-control"/>
                                         </div>
                                         <div class="col-md-12">
@@ -305,7 +319,7 @@
                                     <div class="infoCertificationGroup hide" id="infoCertificationGroupTemplate">
                                         <div class="form-group col-md-6">
                                             <label for="">Certification:</label>
-                                            <input type="text" name="name" class="form-control"/>
+                                            <input type="text" name="name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for=""># Certification:</label>
@@ -313,7 +327,8 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Institution:</label>
-                                            <input type="text" name="organization" class="form-control"/>
+                                            <input type="text" name="organization" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Location:</label>
@@ -321,7 +336,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Start Date:</label>
-                                            <input type="text" name="start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="start_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
@@ -329,7 +345,8 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">End Date:</label>
-                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="end_date" id="end_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="col-md-12">
                                             <a id='remove_more' class="pull-right btn btn-default">-</a>
@@ -344,34 +361,42 @@
                             <div class="panel-heading">Previous Employment information's</div>
                             <div class="panel-body">
                                 <div id="infoEmployer">
+                                    <input type="hidden" name="empindex" value="0"/>
                                     <div class="infoEmployerGroup">
                                         <div class="form-group col-md-6">
                                             <label for="">Job Title:</label>
-                                            <input type="text" name="emp[0].name" class="form-control"/>
+                                            <input type="text" name="emp[0].name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Organisation:</label>
-                                            <input type="text" name="emp[0].organization" class="form-control"/>
+                                            <input type="text" name="emp[0].organization" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Location:</label>
-                                            <input type="text" name="emp[0].location" class="form-control"/>
+                                            <input type="text" name="emp[0].location" class="form-control"
+                                                   required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">From:</label>
-                                            <input type="text" name="emp[0].start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="emp[0].start_date"
+                                                   class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
-                                            <input type="checkbox" name="emp[0].is_still" id="is_still" class="form-control"/>
+                                            <input type="checkbox" name="emp[0].is_still" id="is_still"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">To:</label>
-                                            <input type="text" name="emp[0].end_date" id="end_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="emp[0].end_date"
+                                                   id="end_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="sel1">Notice Period:</label>
-                                            <select class="form-control" name="emp[0].notice_period" id="notice_period" disabled="disabled">
+                                            <select class="form-control" name="emp[0].notice_period" id="notice_period"
+                                                    disabled="disabled">
                                                 <option>--Select--</option>
                                                 <option value="s_notice_period">Serving Notice Period</option>
                                                 <option value="15days">15 Days or less</option>
@@ -383,7 +408,7 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="sel1">Work Type:</label>
-                                            <select class="form-control" name="emp[0].type">
+                                            <select class="form-control" name="emp[0].type" required="True">
                                                 <option>--Select--</option>
                                                 <option value="full_time">Full time</option>
                                                 <option value="part_time">Part time</option>
@@ -410,19 +435,20 @@
                                     <div class="infoEmployerGroup hide" id="infoEmployerGroupTemplate">
                                         <div class="form-group col-md-6">
                                             <label for="">Job Title:</label>
-                                            <input type="text" name="name" class="form-control"/>
+                                            <input type="text" name="name" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Organisation:</label>
-                                            <input type="text" name="organization" class="form-control"/>
+                                            <input type="text" name="organization" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">Location:</label>
-                                            <input type="text" name="location" class="form-control"/>
+                                            <input type="text" name="location" class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">From:</label>
-                                            <input type="text" name="start_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="start_date"
+                                                   class="form-control" required="True"/>
                                         </div>
                                         <div class="form-group col-md-1">
                                             <label for="">Present:</label>
@@ -430,11 +456,13 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="">To:</label>
-                                            <input type="text" name="end_date" id="end_date" class="form-control"/>
+                                            <input type="text" placeholder="YYYY-MM-DD" name="end_date" id="end_date"
+                                                   class="form-control"/>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="sel1">Notice Period:</label>
-                                            <select class="form-control" name="notice_period" id="notice_period" disabled="disabled">
+                                            <select class="form-control" name="notice_period" id="notice_period"
+                                                    disabled="disabled">
                                                 <option>--Select--</option>
                                                 <option value="s_notice_period">Serving Notice Period</option>
                                                 <option value="15days">15 Days or less</option>
@@ -446,7 +474,7 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="sel1">Work Type:</label>
-                                            <select class="form-control" name="type">
+                                            <select class="form-control" name="type" required="True">
                                                 <option>--Select--</option>
                                                 <option value="full_time">Full time</option>
                                                 <option value="part_time">Part time</option>
