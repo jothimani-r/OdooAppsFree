@@ -35,7 +35,7 @@ class WebsiteHrRecruitment(Home):
 
     def _get_applicant_char_fields(self):
         # 'partner_mobile', 'email_from',
-        return ['firstname', 'middlename', 'lastname', 'gender', 'birthplace', 'birthcountry', 'marital',
+        return ['middlename', 'lastname', 'gender', 'place_of_birth', 'country_of_birth', 'marital',
                 'partner_mobile', 'email_from', 'ref_name', 'ref_org', 'ref_rel', 'ref_contact', 'is_same_address',
                 'street_ht', 'street2_ht', 'city_ht', 'zip_ht', 'phone_ht', 'fax_ht']
 
@@ -62,6 +62,68 @@ class WebsiteHrRecruitment(Home):
             'customer': False,
         }
         return address
+
+    def _get_academic_values(self, post):
+        index = int(post.get('eduindex'))
+        values = []
+        for i in range(index + 1):
+            if not post.get('edu[' + str(i) + '].name') and not post.get(
+                                    'edu[' + str(i) + '].organization') and not post.get(
+                                'edu[' + str(i) + '].location'):
+                continue
+            val = {
+                'name': post.get('edu[' + str(i) + '].name') or False,
+                'study_field': post.get('edu[' + str(i) + '].study_field') or False,
+                'organization': post.get('edu[' + str(i) + '].organization') or False,
+                'location': post.get('edu[' + str(i) + '].location') or False,
+                'start_date': post.get('edu[' + str(i) + '].start_date') or False,
+                'is_still': post.get('edu[' + str(i) + '].is_still') or False,
+                'end_date': post.get('edu[' + str(i) + '].end_date') or False,
+                'grade': post.get('edu[' + str(i) + '].grade') or False
+            }
+            values.append((0, 0, val))
+        return values
+
+    def _get_certification_values(self, post):
+        index = int(post.get('cerindex'))
+        values = []
+        for i in range(index + 1):
+            if not post.get('cer[' + str(i) + '].name'):
+                continue
+            val = {
+                'name': post.get('cer[' + str(i) + '].name') or '',
+                'certification': post.get('cer[' + str(i) + '].certification') or False,
+                'organization': post.get('cer[' + str(i) + '].organization') or False,
+                'location': post.get('cer[' + str(i) + '].location') or False,
+                'start_date': post.get('cer[' + str(i) + '].start_date') or False,
+                'is_still': post.get('cer[' + str(i) + '].is_still') or False,
+                'end_date': post.get('cer[' + str(i) + '].end_date') or False,
+            }
+            values.append((0, 0, val))
+        return values
+
+    def _get_experience_values(self, post):
+        index = int(post.get('empindex'))
+        values = []
+        for i in range(index + 1):
+            if not post.get('emp[' + str(i) + '].name') and not post.get(
+                                    'emp[' + str(i) + '].organization') and not post.get('emp[' + str(i) + '].type'):
+                continue
+            val = {
+                'name': post.get('emp[' + str(i) + '].name'),
+                'organization': post.get('emp[' + str(i) + '].organization'),
+                'location': post.get('emp[' + str(i) + '].location') or False,
+                'start_date': post.get('emp[' + str(i) + '].start_date') or False,
+                'is_still': post.get('emp[' + str(i) + '].is_still') or False,
+                'end_date': post.get('emp[' + str(i) + '].end_date') or False,
+                'notice_period': post.get('emp[' + str(i) + '].notice_period') or '',
+                'type': post.get('emp[' + str(i) + '].type'),
+                'referee_name': post.get('emp[' + str(i) + '].referee_name') or False,
+                'referee_position': post.get('emp[' + str(i) + '].referee_position') or False,
+                'referee_contact': post.get('emp[' + str(i) + '].referee_contact') or False,
+            }
+            values.append((0, 0, val))
+        return values
 
     def _format_date(self, date):
         if date:
@@ -90,16 +152,18 @@ class WebsiteHrRecruitment(Home):
 
         address = self._get_residential_address(post)
         value['partner_id'] = env['res.partner'].create(address).id
+        value['academic_ids'] = self._get_academic_values(post)
+        value['certification_ids'] = self._get_certification_values(post)
+        value['experience_ids'] = self._get_experience_values(post)
 
         value['birthday'] = self._format_date(post.get('birthday') or False)
-        print '\n', value, "---------- value\n"
         applicant_id = env['hr.applicant'].create(value).id
 
         for field_name in self._get_applicant_files_fields():
             if post[field_name]:
                 attachment_value = {
                     'name': post[field_name].filename,
-                    'res_name': value['firstname'],
+                    'res_name': value['name'],
                     'res_model': 'hr.applicant',
                     'res_id': applicant_id,
                     'datas': base64.encodestring(post[field_name].read()),
