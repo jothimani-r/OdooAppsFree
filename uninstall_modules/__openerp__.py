@@ -18,6 +18,4 @@
         'base_module_immediate_uninstall.xml',
     ],
     'images': ['images/main_screenshot.png'],
-    'price': 10.00,
-    'currency': 'EUR'
 }
