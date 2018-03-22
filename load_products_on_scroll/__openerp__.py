@@ -7,7 +7,7 @@
 
     """,
     'author': "Jothimani R",
-    'website': "https://www.linkedin.com/in/rjothimani/",
+    'website': "www.linkedin.com/in/jothimani-r",
     'depends': ['website_sale'],
     'data': ['views/templates.xml'],
     'installable': True,

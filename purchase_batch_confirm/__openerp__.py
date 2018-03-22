@@ -6,7 +6,7 @@
         Multiple purchase quotations confirmation in one click.
     """,
     'author': "Jothimani R",
-    'website': "https://www.linkedin.com/in/rjothimani/",
+    'website': "www.linkedin.com/in/jothimani-r",
     'category': 'Purchase Management',
     'version': '0.1',
     'depends': ['purchase'],

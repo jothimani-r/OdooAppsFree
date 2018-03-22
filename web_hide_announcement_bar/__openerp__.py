@@ -4,7 +4,7 @@
     'category': 'Tools',
     'depends': ['mail'],
     'author': "Jothimani R",
-    'website': "https://www.linkedin.com/in/rjothimani/",
+    'website': "www.linkedin.com/in/jothimani-r",
     'description': """
         Module which hides the Odoo announcement bar.
     """,

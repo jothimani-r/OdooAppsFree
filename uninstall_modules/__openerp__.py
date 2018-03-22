@@ -10,7 +10,7 @@
     """,
 
     'author': "Jothimani R",
-    'website': "https://www.linkedin.com/in/rjothimani/",
+    'website': "www.linkedin.com/in/jothimani-r",
     'category': 'Utilities',
     'version': '0.1',
     'depends': ['base'],
