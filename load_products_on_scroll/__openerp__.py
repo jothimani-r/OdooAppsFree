@@ -6,8 +6,8 @@
     This module will give you the possibility to load products on scroll in eCommerce.
 
     """,
-    'author': "JRELA Soft",
-    'website': "www.linkedin.com/in/jrelasoft",
+    'author': "Jothimani R",
+    'website': "https://www.linkedin.com/in/rjothimani/",
     'depends': ['website_sale'],
     'data': ['views/templates.xml'],
     'installable': True,

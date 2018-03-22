@@ -8,8 +8,8 @@
         Upgrade the selected module(s) immediately and fully
     """,
 
-    'author': "JRELA Soft",
-    'website': "http://www.jrelasoft.com",
+    'author': "Jothimani R",
+    'website': "https://www.linkedin.com/in/rjothimani/",
     'category': 'Utilities',
     'version': '0.1',
     'depends': ['base'],

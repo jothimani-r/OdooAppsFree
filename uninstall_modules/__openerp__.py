@@ -9,8 +9,8 @@
         Perform the various steps required to uninstall a module completely including the deletion of all database structures created by the module: tables, columns, constraints, etc.
     """,
 
-    'author': "JRELA Soft",
-    'website': "http://www.jrelasoft.com",
+    'author': "Jothimani R",
+    'website': "https://www.linkedin.com/in/rjothimani/",
     'category': 'Utilities',
     'version': '0.1',
     'depends': ['base'],

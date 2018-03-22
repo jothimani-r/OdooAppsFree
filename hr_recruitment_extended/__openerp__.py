@@ -4,8 +4,8 @@
     'summary': " ",
     'description': """
     """,
-    'author': "JRELA Soft",
-    'website': "www.linkedin.com/in/jrelasoft",
+    'author': "Jothimani R",
+    'website': "https://www.linkedin.com/in/rjothimani/",
     'category': 'Human Resources',
     'version': '0.1',
     'depends': ['base', 'website_hr_recruitment'],
