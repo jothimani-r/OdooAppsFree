@@ -8,6 +8,7 @@
     """,
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/jothimani-r",
+    'license': 'AGPL-3',
     'depends': ['website_sale'],
     'data': ['views/templates.xml'],
     'installable': True,

@@ -5,6 +5,7 @@
     'depends': ['mail'],
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/jothimani-r",
+    'license': 'AGPL-3',
     'description': """
         Module which hides the Odoo announcement bar.
     """,

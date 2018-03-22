@@ -11,6 +11,7 @@
 
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/jothimani-r",
+    'license': 'AGPL-3',
     'category': 'Utilities',
     'version': '0.1',
     'depends': ['base'],

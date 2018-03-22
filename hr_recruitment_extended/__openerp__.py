@@ -6,6 +6,7 @@
     """,
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/jothimani-r",
+    'license': 'AGPL-3',
     'category': 'Human Resources',
     'version': '0.1',
     'depends': ['base', 'website_hr_recruitment'],
