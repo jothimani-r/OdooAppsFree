@@ -7,6 +7,7 @@
     """,
     'author': "Jothimani R",
     'website': "www.linkedin.com/in/jothimani-r",
+    'license': 'AGPL-3',
     'category': 'Sales Management',
     'version': '0.1',
     'depends': ['sale'],
