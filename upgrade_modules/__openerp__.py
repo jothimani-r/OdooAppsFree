@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Upgrade Modules",
+    'name': "Upgrade Apps",
 
-    'summary': """Upgrade the selected module(s) immediately and fully""",
+    'summary': """Upgrade the selected app(s) immediately and fully""",
 
     'description': """
-        Upgrade the selected module(s) immediately and fully
+        Upgrade the selected app(s) immediately and fully
     """,
 
     'author': "Jothimani R",

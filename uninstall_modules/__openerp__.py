@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Uninstall Modules",
+    'name': "Uninstall Apps",
 
     'summary': """
-        Uninstall the selected module(s) immediately and fully""",
+        Uninstall the selected app(s) immediately and fully""",
 
     'description': """
         Perform the various steps required to uninstall a module completely including the deletion of all database structures created by the module: tables, columns, constraints, etc.
